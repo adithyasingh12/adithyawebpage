@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <a href="#home">Krushil</a>
+        <a href="#home">Adithya</a>
       </div>
       <ul className="nav-links">
         <li><a href="#home">Home</a></li>
