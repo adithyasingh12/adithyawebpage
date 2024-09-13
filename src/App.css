@@ -1,38 +1,396 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar Styles */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between; /* space between logo and nav-links */
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow under the navbar */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00AEEF; /* Purple color for logo */
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  position: relative; /* For underline and shadow effect */
+  padding-bottom: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow under text */
+}
+
+.nav-links a:hover,
+.nav-links a.active { /* For hover and active button styling */
+  color: #ff5c3d; /* Orange color on hover or active */
+  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Even stronger shadow on hover */
+  box-shadow: none; /* Remove the hover box shadow */
+}
+
+.nav-links a::after { /* Underline effect */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff5c3d; /* Orange underline */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* About Me Section */
+.about-me {
+  background-color: #fff; /* Light background for contrast */
+  padding: 4rem 2rem; /* Add padding to create whitespace */
+  text-align: center;
+}
+
+.about-text {
+  max-width: 30%; /* Makes the text narrower */
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-me h2 {
+  font-size: 2.5rem;
+  color: #00AEEF;
+  margin-bottom: 1rem;
+}
+
+.about-me p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6; /* Improves readability */
+}
+
+
+/* Image Between Sections */
+.between-sections {
+  text-align: left;
+  padding: 2rem 2rem;
+  margin-top: -2rem; /* Adjust if necessary to position properly */
+}
+
+.between-sections img {
+  max-width: 25%; /* Adjust the size */
+  border-radius: 10px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between; /* Aligns content to the left and image to the right */
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+  padding: 0 2rem; /* Add some padding for spacing */
+  text-align: left;
+}
+
+.hero-content {
+  max-width: 60%; /* Adjust for text and content space */
+}
+
+.hero-image {
+  max-width: 30%; /* Adjust for image space */
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 10px; /* Slight border radius for the image */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #00AEEF;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00AEEF;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Icons Section at the Bottom */
+.icons-container {
+  display: flex;
+  justify-content: center; /* Align icons to the left */
+  align-items: center;
+  flex-wrap: wrap; /* Allows the icons to wrap into multiple lines */
+  padding: 2rem 2rem 4rem; /* Add bottom padding for more whitespace */
+}
+
+.icon-box {
+  width: 55px;
+  height: 55px;
+  margin: 0.5rem;
+  background-color: #fff; /* Light background color */
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.icon-image {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Experience Section */
+.experience {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 8rem; /* Adds extra whitespace before Expertise section */
+}
+
+.experience .content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience h2 {
+  font-size: 2.5rem;
+  color: #00AEEF;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  display: flex;
+  justify-content: center; /* Ensures boxes are centered */
+  flex-wrap: wrap; /* Allows boxes to wrap and be responsive */
+  gap: 1rem; /* Adds space between boxes */
+}
+
+.experience-item {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Sets width to 400px */
+  height: 150px; /* Sets height to 150px */
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 1rem; /* Adds space between logo and text */
+}
+
+.company-logo {
+  width: 50px; /* Adjust the size of the logos */
+  height: auto;
+}
+
+.experience-item h3 {
+  font-size: 1.5rem;
+  color: #00AEEF;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Expertise Section */
+.expertise {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.expertise .content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.expertise h2 {
+  font-size: 2.5rem;
+  color: #00AEEF;
+  margin-bottom: 1rem;
+}
+
+/* Projects Section */
+.projects {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.projects-list {
+  display: flex;
+  justify-content: center; /* Ensures boxes are centered */
+  flex-wrap: wrap; /* Allows boxes to wrap and be responsive */
+  gap: 1rem; /* Adds space between boxes */
+}
+
+.projects-item {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Sets width to 400px */
+  height: 150px; /* Sets height to 150px */
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 1rem; /* Adds space between logo and text */
+}
+
+.project-logo {
+  width: 50px; /* Adjust the size of the logos */
+  height: auto;
+}
+
+.projects-item h3 {
+  font-size: 1.5rem;
+  color: #00AEEF;
+  margin-bottom: 0.5rem;
+}
+
+.projects-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.modal-content button {
+  padding: 0.5rem 1rem;
+  background-color: #ff5c3d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #e04a2d;
+}
+
+/* Quote Container */
+.quote-container {
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+
+.quote-container p {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-container footer {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.between-expertise-projects {
+  display: flex;
+  justify-content: flex-end; /* Aligns the image to the right */
+  padding: 2rem;
+}
+
+.between-expertise-projects img {
+  max-width: 30%; /* Adjust the size if necessary */
+  height: auto;
 }
